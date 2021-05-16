@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <header th:insert="base.html :: header-rec"> </header>
+  <body>
+  	
+    <!-- Menu Nav -->
+    <nav th:insert="base.html :: nav-rec"> </nav>
+    <div th:insert="base.html :: sub-nav-rec"> </div>
+    
+    <div th:insert="base.html :: retrieve-id"> </div>
+    <div th:insert="base.html :: retrieve-auth"> </div>
+    
+    <!-- Corpo - Inserir modificações aqui -->
+    
+    <div class="container container-principal">
+      <div class="row justify-content-center p-3 pl-5">
+        <div class="col-12 col-md-3 order-md-2">
+          <div class="row justify-content-center">
+            <img class="img-fluid" src="Imagens/Cadastro-curriculo/curriculo.jpg" alt="Imigrantes Cadastro">
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 order-md-1 formulario p-3">
+          <div class="row justify-content-center p-2">
+            <div class="col-8 text-center">
+              <h1>
+                Cadastro de Curriculo
+              </h1>
+            </div> 
+          </div>
+          <form class="row g-3" id="PostComponent">
+            <div class="row justify-content-center p-2">
+              
+              <div class="col-12 text-center mt-3">
+                <p><strong><h4>OBJETIVO PROFISSIONAL</h4></strong></p>
+              </div>
+              <div class="col-6">
+                <label for="inputArea" class="form-label">Área</label>
+                <input type="text" v-model="cadastro.area" class="form-control" id="inputArea" placeholder="Area de conhecimento">
+              </div>
+              <div class="col-6">
+                <label for="inputPretSalario" class="form-label">Pretenção Salarial</label>
+                <input type="text" v-model="cadastro.pretSalario" class="form-control" id="inputPretSalario" placeholder="Valor em real">
+              </div>
+              <div class="row justify-content-center p-2 mt-3">
+                <div class="col-12 text-center">
+                  <p><strong><h4>HISTÓRICO PROFISSIONAL</h4></strong></p>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <label for="inputLastEmp" class="form-label">Último Emprego</label>
+                <input type="text" v-model="cadastro.lastEmp" class="form-control" id="inputLastEmp">
+              </div>
+              <div class="col-4">
+                <label for="inputCountry" class="form-label">País</label>
+                <input type="text" v-model="cadastro.country" class="form-control" id="inputCountry" placeholder="Brasil">
+              </div>
+              <div class="col-12">
+                <label for="inputJobDesc" class="form-label">Descrição do Cargo</label>
+                <textarea class="form-control" v-model="cadastro.jobDesc" id="inputJobDesc" rows="3"></textarea>
+              </div>
+              <div class="col-12 text-center mt-3">
+                <p><strong><h4>INFORMAÇÕES EXTRAS</h4></strong></p>
+              </div>
+              <div class="col-12">
+                <label for="inputFormacao" class="form-label">Formação</label>
+                <input type="text" v-model="cadastro.formacao" class="form-control" id="inputFormacao">
+              </div>
+              <div class="col-8">
+                <label for="inputInstituicao" class="form-label">Instituição</label>
+                <input type="text" v-model="cadastro.instituicao" class="form-control" id="inputInstituicao">
+              </div>
+              <div class="col-4">
+                <label for="inputAnoFormacao" class="form-label">Ano de Formação</label>
+                <input type="text" v-model="cadastro.anoFormacao" class="form-control" id="inputAnoFormacao">
+              </div>
+
+              <div class="col-12 mt-3" v-show="cadastro.isBlank">
+                <button type="submit"  v-on:click="postData" class="btn btn-success">Cadastrar</button>
+              </div>
+              
+              <div class="col-12 mt-3" v-show="!cadastro.isBlank">
+                <button type="submit"  v-on:click="updateData" class="btn btn-success">Atualizar</button>
+              </div>
+              
+            </div>
+          </form>
+  
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer th:insert="base.html :: footer-rec"> </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    	var num_id = document.getElementById("username_id").value;
+    	var app4 = new Vue({
+				el: '#PostComponent',
+				data: {
+					cadastro: {
+						area: null,
+						pretSalario: null,
+						lastEmp: null,
+						country: null,
+						jobDesc: null,
+						formacao: null,
+						instituicao: null,
+						anoFormacao: null,
+						isBlank:  true
+					},
+					
+				},
+				mounted (){
+					this.loadData();
+				},
+				methods:{
+					postData: function()
+					{
+						axios.post("http://localhost:8080/v1/curriculum/" + num_id, this.cadastro);
+					},
+					
+					loadData: function() 
+					{
+						axios
+							.get("http://localhost:8080/v1/curriculum/" + num_id)
+							.then(response => {
+								if(response.data != ""){
+									this.cadastro.isBlank = false;
+									this.cadastro = response.data
+								}else{
+									this.cadastro.isBlank = true;
+								}
+								
+							});
+					},
+					updateData: function(){
+						axios
+						.put("http://localhost:8080/v1/curriculum/" + num_id, this.cadastro)
+						.then(response => {
+								if(response.data != ""){
+									this.cadastro = response.data
+								}
+							});
+					}
+				}
+				
+			});
+    
+    </script>
+    
+    <div th:insert="base.html :: auth-rec"> </div>
+ 
+  </body>
+</html>

@@ -1,0 +1,33 @@
+body{
+  background-color: rgb(94, 117, 117);
+}
+
+.container-principal{
+  background-color: #134B4B;
+}
+
+h1{
+  font-size: calc(1.525rem + 3.3vw);
+  color: rgb(224, 224, 224);
+}
+
+.text-index, label{
+  color: rgb(224, 224, 224);
+  font-size: 1.15rem;
+}
+
+.img-logo{
+  border-radius: 50%;
+}
+
+.container-principal .formulario{
+  background-color: rgba(39, 39, 39, 0.5); 
+}
+
+.navegacao_perfil a{
+  color: rgb(219, 219, 219) !important;
+}
+
+.distribution{
+  background-color: rgba(99, 138, 122, 0.5);
+}

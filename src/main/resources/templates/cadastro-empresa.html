@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  <header th:insert="base.html :: header-rec"> </header>
+  <body>
+  	
+    <!-- Menu Nav -->
+    <nav th:insert="base.html :: nav-rec"> </nav>
+    <div th:insert="base.html :: sub-nav-rec"> </div>
+    
+    <div th:insert="base.html :: retrieve-id"> </div>
+    <div th:insert="base.html :: retrieve-auth"> </div>
+    
+    <!-- Corpo - Inserir modificações aqui -->
+    <div class="container container-principal">
+      <div class="row justify-content-center p-3 pl-5">
+        <div class="col-12 col-md-3 order-md-2">
+          <div class="row justify-content-center">
+            <img class="img-fluid" src="Imagens/Cadastro-empresa/Imagem5.jpg" alt="Imigrantes Cadastro">
+          </div>
+        </div>
+
+
+        <div class="col-12 col-md-9 order-md-1 formulario p-3">
+          <div class="row justify-content-center p-2">
+            <div class="col-8 text-center">
+              <h1>
+                Sou Recrutador!
+              </h1>
+            </div> 
+          </div>
+          <form class="row g-3" id="PostComponent">
+            <div class="col-md-6" sec:authorize="!isAuthenticated()">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" v-model="cadastro.emailCompany" class="form-control" id="inputEmail4">
+            </div>
+            <div class="col-md-6" sec:authorize="!isAuthenticated()">
+              <label for="inputPassword4" class="form-label">Senha</label>
+              <input type="password" v-model="cadastro.senha" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-12">
+              <label for="inputNameComp" class="form-label">Razão Social</label>
+              <input type="text" v-model="cadastro.nameCompany" class="form-control" id="inputNameComp">
+            </div>
+            <div class="col-6">
+              <label for="inputCPF" class="form-label">CNPJ</label>
+              <input type="text" v-model="cadastro.cnpj" class="form-control" id="inputCPF" placeholder="XX.XXX.XXX/XXXX-XX">
+            </div>
+            <div class="col-6">
+              <label for="inputTelephone" class="form-label">Telefone</label>
+              <input type="text" v-model="cadastro.cellphoneNumber" class="form-control" id="inputTelephone" placeholder="(XX) XXXX-XXXX">
+            </div>
+            <div class="col-12">
+              <label for="inputAreaComp" class="form-label">Área de Atuação</label>
+              <input type="text" v-model="cadastro.fieldCompany" class="form-control" id="inputAreaComp">
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">Endereço</label>
+              <input type="text" v-model="cadastro.adressCompany" class="form-control" id="inputAddress" placeholder="Rua Principal, N° 123">
+            </div>
+            <div class="col-md-5">
+              <label for="inputCity" class="form-label">Cidade</label>
+              <input type="text" v-model="cadastro.cityCompany" class="form-control" id="inputCity">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">Estado</label>
+              <select v-model="cadastro.stateCompany" id="inputState" class="form-select" size="1">
+                <option selected>Escolha...</option>
+                <option value="Acre">Acre</option>
+                <option value="Alagoas">Alagoas</option>
+                <option value="Amapá">Amapá</option>
+                <option value="Amazonas">Amazonas</option>
+                <option value="Bahia">Bahia</option>
+                <option value="Ceará">Ceará</option>
+                <option value="Distrito Federal">Distrito Federal</option>
+                <option value="Espírito Santo">Espírito Santo</option>
+                <option value="Goias">Goias</option>
+                <option value="Maranhão">Maranhão</option>
+                <option value="Mato Grosso">Mato Grosso</option>
+                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                <option value="Minas Gerais">Minas Gerais</option>
+                <option value="Pará">Pará</option>
+                <option value="Paraíba">Paraíba</option>
+                <option value="Paraná">Paraná</option>
+                <option value="Pernambuco">Pernambuco</option>
+                <option value="Piauí">Piauí</option>
+                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                <option value="Rondônia">Rondônia</option>
+                <option value="Roraima">Roraima</option>
+                <option value="Santa Catarina">Santa Catarina</option>
+                <option value="São Paulo">São Paulo</option>
+                <option value="Sergipe">Sergipe</option>
+                <option value="Tocantins">Tocantins</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="inputZip" class="form-label">CEP</label>
+              <input v-model="cadastro.zipCompany" type="text" class="form-control" id="inputZip">
+            </div>
+            
+            <div class="col-12" sec:authorize="!isAuthenticated()">
+              <button v-on:click="postData" type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+            
+            <div class="col-12" sec:authorize="isAuthenticated()">
+              <button v-on:click="updateData" type="submit" class="btn btn-success">Atualizar</button>
+            </div>
+
+          </form>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- Footer -->
+    <footer th:insert="base.html :: footer-rec"> </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    	var num_id = document.getElementById("username_id");
+    	if(num_id != null){
+			num_id = num_id.value;
+		}
+    	
+    	var app4 = new Vue({
+				el: '#PostComponent',
+				data: {
+					cadastro: {
+						senha: null,
+						isImi: this.isImi,
+						isEmp: this.isEmp,
+						emailCompany: null,
+						nameCompany: null,
+						cnpj: null,
+						cellphoneNumber: null,
+						adressCompany: null,
+						cityCompany: null,
+						stateCompany: null,
+						zipCompany: null,
+						fieldCompany: null
+					}
+				},
+				mounted (){
+					if(num_id != null){
+						this.loadData();
+					}
+				},
+				methods:{
+					postData: function()
+					{
+						axios.post("http://localhost:8080/v1/company", this.cadastro);
+					},
+					loadData: function() 
+					{
+						axios
+							.get("http://localhost:8080/v1/company/" + num_id)
+							.then(response => {
+								if(response.data != ""){
+									this.cadastro = response.data
+								}
+								
+							});
+					},
+					updateData: function(){
+						axios
+						.put("http://localhost:8080/v1/company/" + num_id, this.cadastro)
+						.then(response => {
+								if(response.data != ""){
+									this.cadastro = response.data
+								}
+							});
+					}
+				}
+			});
+    
+    </script>
+    <div th:insert="base.html :: auth-rec"> </div>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <header th:insert="base.html :: header-rec"> </header>
+  <body>
+    <nav th:insert="base.html :: nav-rec"> </nav>
+    <div th:insert="base.html :: sub-nav-rec"> </div>
+    
+    <div th:insert="base.html :: retrieve-id"> </div>
+    <div th:insert="base.html :: retrieve-auth"> </div>
+    
+    <!-- Corpo - Inserir modificações aqui -->
+    <div class="container container-principal">
+      <div class="row justify-content-center p-3 pl-5">
+        <div class="col-12 col-md-3 order-md-2">
+          <div class="row justify-content-center">
+            <img class="img-fluid" src="Imagens/Vagas/Imagem6.jpg" alt="Vagas">
+          </div>
+        </div>
+        
+
+
+        <div class="col-12 col-md-9 order-md-1 formulario p-3">
+          <div class="row justify-content-center p-2">
+            <div class="col-8 text-center">
+              <h1>
+                Banco de Vagas
+              </h1>
+            </div> 
+          </div>
+
+          
+          <div class="row justify-content-center p-3 mb-3">
+            <div class="col-8">
+              <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Pesquise uma vaga..." aria-label="Search"
+                  aria-describedby="search-addon" />
+                <button type="button" class="btn btn-outline-light">Buscar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row row-cols-2 justify-content-center distribution p-2" id="PostComponent">
+            
+            <div v-for='content in vagas_data'>
+            	<div class="col justify-content-center">
+				  <div class="card bg-light mb-3" style="max-width: 18rem;">
+				    <div class="card-header">{{content.nomeEmpresa}}</div>
+				    <div class="card-body">
+				      <h5 class="card-title">{{content.cargo}}</h5>
+				      <p class="card-text" th:type="text" th:maxlength="200">
+				      	{{content.atividadesCargo}}
+				      </p>
+				      <a :href="`/detalhe-vaga?idVaga=${content.id}`" v-if="auth_type=='[IMI]'" class="btn btn-primary">Saiba mais</a>
+				      <a :href="`/cadastro-vagas?idVaga=${content.id}`" v-if="auth_type=='[EMP]'" class="btn btn-primary">Visualizar</a>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			
+          </div>
+
+          <div class="row justify-content-center mt-3">
+            <div class="col-3">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer th:insert="base.html :: footer-rec"> </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <div th:insert="base.html :: auth-rec"> </div>
+    <script>
+    	var num_id = document.getElementById("username_id");
+    	if(num_id != null){
+			num_id = num_id.value;
+		}
+    	var app4 = new Vue({
+				el: '#PostComponent',
+				data: {
+					vagas_data: [],
+					auth_type: auth_type
+				},
+				mounted (){
+					if(num_id != null){
+						this.loadData();
+					}
+				},
+				methods:{
+					loadData: function() 
+					{
+						if(auth_type=="[IMI]"){
+							axios
+								.get("http://localhost:8080/v1/vaga")
+								.then(response => {
+									if(response.data != ""){
+										this.vagas_data = response.data
+									}
+									
+								});
+						}else if(auth_type=="[EMP]"){
+							axios
+								.get("http://localhost:8080/v1/vaga/emp/"+num_id)
+								.then(response => {
+									if(response.data != ""){
+										this.vagas_data = response.data
+									}
+									
+								});
+							
+						}
+					}
+				}
+			});
+    
+    </script>
+    
+  </body>
+</html>

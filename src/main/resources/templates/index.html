@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <header th:insert="base.html :: header-rec"> </header>
+  <body>
+    <nav th:insert="base.html :: nav-rec"> </nav>
+    <div th:insert="base.html :: sub-nav-rec"> </div>
+    
+    <div th:insert="base.html :: retrieve-auth"> </div>
+    <div th:insert="base.html :: retrieve-id"> </div>
+    
+    <div class="container container-principal">
+      <div class="row p-4">
+          <div class="col-12 col-sm-6">
+            <div class="row justify-content-center p-2">
+              <div class="col-5">
+                <img class="img-fluid" src="Imagens/Index/Imagem1.png" alt="Enfeite Superior">
+              </div> 
+            </div>
+            <div class="row justify-content-center p-2">
+              <div class="col-8 text-center">
+                <h1>
+                  Programa Recomeçar
+                </h1>
+              </div> 
+            </div>
+            <div class="row justify-content-center p-2">
+              <div class="col-10 text-center">
+                <p class="text-index">
+                  Um novo começo com infinitas possibilidades.
+                </p>
+              </div>  
+            </div>
+            <div class="row p-2 justify-content-center">
+              <div class="col-4">
+                <a class="btn btn-outline-light" href="/cadastro-imigrante" role="button">Sou imigrante!</a>
+              </div>
+              <div class="col-4">
+                <a class="btn btn-outline-light" href="/cadastro-empresa" role="button">Sou recrutador!</a>
+              </div>
+            </div>
+            <div class="row p-2 justify-content-center">
+              <div class="col-4">
+                <a class="btn btn-outline-light" href="#" role="button">Quero apoiar!</a>
+              </div>
+            </div>
+            <div class="row justify-content-center p-2">
+              <div class="col-5">
+                <img class="img-fluid" src="Imagens/Index/Imagem2.png" alt="Enfeite Inferior">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="row justify-content-center p-2">
+              <div class="col-7 mt-2">
+                <img class="img-logo img-fluid" src="Imagens/Index/Imagem3.jpg" alt="Imigrantes">
+              </div>
+            </div>
+            <div class="row justify-content-center p-4">
+              <div class="col-9 text-center">
+                <p class="text-index">
+                  Somos um grupo de apoio a imigrantes e refugiados que buscam recolocação profissional. Nossa missão é conectar pessoas e construir futuros.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <footer th:insert="base.html :: footer-rec"> </footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script>
+    	var num_id = document.getElementById("username_id");
+    	if(num_id != null){
+			num_id = num_id.value;
+		}
+	</script>
+    <div th:insert="base.html :: auth-rec"> </div>
+  </body>
+</html>
