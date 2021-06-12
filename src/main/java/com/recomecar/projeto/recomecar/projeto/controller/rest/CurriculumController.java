@@ -23,11 +23,15 @@ import com.recomecar.projeto.recomecar.projeto.viewmodel.CurriculumVM;
 @RequestMapping(value = "/v1/curriculum", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CurriculumController {
 	
-	@Autowired
 	private CurriculumRepository curriculumRepository;
+	private CandidateRepository candidateRepository;
 	
 	@Autowired
-	private CandidateRepository candidateRepository;
+	public CurriculumController(CurriculumRepository curriculumRepository, CandidateRepository candidateRepository) {
+		this.candidateRepository = candidateRepository;
+		this.curriculumRepository = curriculumRepository;
+		
+	}
 	
 	@PostMapping("/{id}")
 	public ResponseEntity<CurriculumVM> cadastrarCurriculo(@PathVariable Long id, @RequestBody CurriculumVM curriculumVM){
@@ -61,7 +65,7 @@ public class CurriculumController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<CurriculumVM> atualizarCurriculo(@PathVariable Long id){
+	public ResponseEntity<CurriculumVM> buscarCurriculo(@PathVariable Long id){
 		Candidate candidate = candidateRepository.findById(id).get();
 		Optional<Curriculum> curriculumOp = curriculumRepository.findByCandidate(candidate);
 		

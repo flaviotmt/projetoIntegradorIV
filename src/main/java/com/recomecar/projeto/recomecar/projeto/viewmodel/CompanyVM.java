@@ -90,6 +90,85 @@ public class CompanyVM {
 		
 		return company;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adressCompany == null) ? 0 : adressCompany.hashCode());
+		result = prime * result + ((cellphoneNumber == null) ? 0 : cellphoneNumber.hashCode());
+		result = prime * result + ((cityCompany == null) ? 0 : cityCompany.hashCode());
+		result = prime * result + ((cnpj == null) ? 0 : cnpj.hashCode());
+		result = prime * result + ((emailCompany == null) ? 0 : emailCompany.hashCode());
+		result = prime * result + ((fieldCompany == null) ? 0 : fieldCompany.hashCode());
+		result = prime * result + ((nameCompany == null) ? 0 : nameCompany.hashCode());
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+		result = prime * result + ((stateCompany == null) ? 0 : stateCompany.hashCode());
+		result = prime * result + ((zipCompany == null) ? 0 : zipCompany.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CompanyVM other = (CompanyVM) obj;
+		if (adressCompany == null) {
+			if (other.adressCompany != null)
+				return false;
+		} else if (!adressCompany.equals(other.adressCompany))
+			return false;
+		if (cellphoneNumber == null) {
+			if (other.cellphoneNumber != null)
+				return false;
+		} else if (!cellphoneNumber.equals(other.cellphoneNumber))
+			return false;
+		if (cityCompany == null) {
+			if (other.cityCompany != null)
+				return false;
+		} else if (!cityCompany.equals(other.cityCompany))
+			return false;
+		if (cnpj == null) {
+			if (other.cnpj != null)
+				return false;
+		} else if (!cnpj.equals(other.cnpj))
+			return false;
+		if (emailCompany == null) {
+			if (other.emailCompany != null)
+				return false;
+		} else if (!emailCompany.equals(other.emailCompany))
+			return false;
+		if (fieldCompany == null) {
+			if (other.fieldCompany != null)
+				return false;
+		} else if (!fieldCompany.equals(other.fieldCompany))
+			return false;
+		if (nameCompany == null) {
+			if (other.nameCompany != null)
+				return false;
+		} else if (!nameCompany.equals(other.nameCompany))
+			return false;
+		if (senha == null) {
+			if (other.senha != null)
+				return false;
+		} else if (!senha.equals(other.senha))
+			return false;
+		if (stateCompany == null) {
+			if (other.stateCompany != null)
+				return false;
+		} else if (!stateCompany.equals(other.stateCompany))
+			return false;
+		if (zipCompany == null) {
+			if (other.zipCompany != null)
+				return false;
+		} else if (!zipCompany.equals(other.zipCompany))
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 

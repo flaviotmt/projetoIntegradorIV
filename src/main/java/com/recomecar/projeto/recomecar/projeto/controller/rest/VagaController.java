@@ -25,11 +25,15 @@ import com.recomecar.projeto.recomecar.projeto.viewmodel.VagaVM;
 @RequestMapping(value = "/v1/vaga", produces = MediaType.APPLICATION_JSON_VALUE)
 public class VagaController {
 	
-	@Autowired
 	private VagasRepository repository;
+	private CompanyRepository repositoryCompany;
 	
 	@Autowired
-	private CompanyRepository repositoryCompany;
+	public VagaController(VagasRepository repository, CompanyRepository repositoryCompany) {
+		this.repository = repository;
+		this.repositoryCompany = repositoryCompany;
+		
+	}
 	
 	
 	@PostMapping("/{id}")

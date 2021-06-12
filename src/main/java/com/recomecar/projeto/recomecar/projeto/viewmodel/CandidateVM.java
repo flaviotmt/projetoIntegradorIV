@@ -173,4 +173,105 @@ public class CandidateVM {
 		return candidate;
 	}
 
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((NameCandidate == null) ? 0 : NameCandidate.hashCode());
+		result = prime * result + ((adressCandidate == null) ? 0 : adressCandidate.hashCode());
+		result = prime * result + ((cellphoneNumber == null) ? 0 : cellphoneNumber.hashCode());
+		result = prime * result + ((cityCandidate == null) ? 0 : cityCandidate.hashCode());
+		result = prime * result + ((countryOrigin == null) ? 0 : countryOrigin.hashCode());
+		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+		result = prime * result + ((education == null) ? 0 : education.hashCode());
+		result = prime * result + ((emailCandidate == null) ? 0 : emailCandidate.hashCode());
+		result = prime * result + ((jobName == null) ? 0 : jobName.hashCode());
+		result = prime * result + ((languageOrigin == null) ? 0 : languageOrigin.hashCode());
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
+		result = prime * result + ((stateCandidate == null) ? 0 : stateCandidate.hashCode());
+		result = prime * result + ((zipCandidate == null) ? 0 : zipCandidate.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CandidateVM other = (CandidateVM) obj;
+		if (NameCandidate == null) {
+			if (other.NameCandidate != null)
+				return false;
+		} else if (!NameCandidate.equals(other.NameCandidate))
+			return false;
+		if (adressCandidate == null) {
+			if (other.adressCandidate != null)
+				return false;
+		} else if (!adressCandidate.equals(other.adressCandidate))
+			return false;
+		if (cellphoneNumber == null) {
+			if (other.cellphoneNumber != null)
+				return false;
+		} else if (!cellphoneNumber.equals(other.cellphoneNumber))
+			return false;
+		if (cityCandidate == null) {
+			if (other.cityCandidate != null)
+				return false;
+		} else if (!cityCandidate.equals(other.cityCandidate))
+			return false;
+		if (countryOrigin == null) {
+			if (other.countryOrigin != null)
+				return false;
+		} else if (!countryOrigin.equals(other.countryOrigin))
+			return false;
+		if (cpf == null) {
+			if (other.cpf != null)
+				return false;
+		} else if (!cpf.equals(other.cpf))
+			return false;
+		if (education == null) {
+			if (other.education != null)
+				return false;
+		} else if (!education.equals(other.education))
+			return false;
+		if (emailCandidate == null) {
+			if (other.emailCandidate != null)
+				return false;
+		} else if (!emailCandidate.equals(other.emailCandidate))
+			return false;
+		if (jobName == null) {
+			if (other.jobName != null)
+				return false;
+		} else if (!jobName.equals(other.jobName))
+			return false;
+		if (languageOrigin == null) {
+			if (other.languageOrigin != null)
+				return false;
+		} else if (!languageOrigin.equals(other.languageOrigin))
+			return false;
+		if (senha == null) {
+			if (other.senha != null)
+				return false;
+		} else if (!senha.equals(other.senha))
+			return false;
+		if (stateCandidate == null) {
+			if (other.stateCandidate != null)
+				return false;
+		} else if (!stateCandidate.equals(other.stateCandidate))
+			return false;
+		if (zipCandidate == null) {
+			if (other.zipCandidate != null)
+				return false;
+		} else if (!zipCandidate.equals(other.zipCandidate))
+			return false;
+		return true;
+	}
+	
+	
+
 }

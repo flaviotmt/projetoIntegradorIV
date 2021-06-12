@@ -26,14 +26,16 @@ import com.recomecar.projeto.recomecar.projeto.viewmodel.CompanyVM;
 @RequestMapping(value = "/v1/company", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CompanyController {
 	
-	@Autowired
 	private CompanyRepository repository;
-	
-	@Autowired
 	private UserRepository repositoryUser;
+	private AuthoritiesRepository repositoryAuth;
 	
 	@Autowired
-	private AuthoritiesRepository repositoryAuth;
+	public CompanyController(CompanyRepository repository, UserRepository repositoryUser, AuthoritiesRepository repositoryAuth) {
+		this.repository = repository;
+		this.repositoryUser = repositoryUser;
+		this.repositoryAuth = repositoryAuth;
+	}
 	
 	@PostMapping
 	public ResponseEntity<CompanyVM> cadastrarCompany(@RequestBody final CompanyVM companyVM) {

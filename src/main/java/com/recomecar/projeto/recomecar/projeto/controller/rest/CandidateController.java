@@ -26,17 +26,19 @@ import com.recomecar.projeto.recomecar.projeto.viewmodel.CandidateVM;
 @RequestMapping(value = "/v1/candidate", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CandidateController {
 	
-	@Autowired
 	private CandidateRepository repository;
-	
-	@Autowired
 	private UserRepository repositoryUser;
-	
-	@Autowired
 	private AuthoritiesRepository repositoryAuth;
 	
+	@Autowired
+	public CandidateController(CandidateRepository repository, UserRepository repositoryUser, AuthoritiesRepository repositoryAuth ) {
+		this.repository = repository;
+		this.repositoryUser = repositoryUser;
+		this.repositoryAuth = repositoryAuth;
+	}
+	
 	@PostMapping
-	public ResponseEntity<CandidateVM> listarCandidatos(@RequestBody final CandidateVM candidateVM) {
+	public ResponseEntity<CandidateVM> cadastrarCandidatos(@RequestBody final CandidateVM candidateVM) {
 		Candidate candidate = candidateVM.toViewModel();
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		User user = new User();
@@ -67,15 +69,19 @@ public class CandidateController {
 		Candidate candidate = candidateOptional.get();
 		
 		CandidateVM candidateVM = new CandidateVM();
-		candidateVM.setNameCandidate(candidate.getNameCandidate());
-		candidateVM.setCpf(candidate.getCpf());
-		candidateVM.setCellphoneNumber(candidate.getCellphoneNumber());
 		candidateVM.setAdressCandidate(candidate.getAdressCandidate());
+		candidateVM.setCellphoneNumber(candidate.getCellphoneNumber());
 		candidateVM.setCityCandidate(candidate.getCityCandidate());
+		candidateVM.setCountryOrigin(candidate.getCountryOrigin());
+		candidateVM.setCpf(candidate.getCpf());
+		candidateVM.setEducation(candidate.getEducation());
+		candidateVM.setJobName(candidate.getJobName());
+		candidateVM.setLanguageOrigin(candidate.getLanguageOrigin());
+		candidateVM.setNameCandidate(candidate.getNameCandidate());	
 		candidateVM.setStateCandidate(candidate.getStateCandidate());
 		candidateVM.setZipCandidate(candidate.getZipCandidate());
-		candidateVM.setCountryOrigin(candidate.getCountryOrigin());
-		candidateVM.setLanguageOrigin(candidate.getLanguageOrigin());
+		
+		
 		
 		return ResponseEntity.ok().body(candidateVM);
 	}
@@ -92,6 +98,8 @@ public class CandidateController {
 		candidate.setZipCandidate(candidateVM.getZipCandidate());
 		candidate.setCountryOrigin(candidateVM.getCountryOrigin());
 		candidate.setLanguageOrigin(candidateVM.getLanguageOrigin());
+		candidate.setEducation(candidateVM.getEducation());
+		candidate.setJobName(candidateVM.getJobName());
 	
 		repository.save(candidate);
 		
