@@ -9,9 +9,9 @@ public class CandidateVMMock {
 		candidateVM.setAdressCandidate("Rua A");
 		candidateVM.setCellphoneNumber("(xx) xxxx-xxxx");
 		candidateVM.setCityCandidate("Cidade");
-		candidateVM.setCountryOrigin("País");
+		candidateVM.setCountryOrigin("Pais");
 		candidateVM.setCpf("xxx.xxx.xxx-xx");
-		candidateVM.setEducation("Educação");
+		candidateVM.setEducation("Educacao");
 		candidateVM.setEmailCandidate("email@email.com");
 		candidateVM.setJobName("Cargo");
 		candidateVM.setLanguageOrigin("Lingua");
@@ -30,9 +30,9 @@ public class CandidateVMMock {
 		candidateVM.setAdressCandidate("Rua A 2");
 		candidateVM.setCellphoneNumber("(xx) xxxx-xxxx 2");
 		candidateVM.setCityCandidate("Cidade 2");
-		candidateVM.setCountryOrigin("País 2");
+		candidateVM.setCountryOrigin("Pais 2");
 		candidateVM.setCpf("xxx.xxx.xxx-xx 2");
-		candidateVM.setEducation("Educação 2");
+		candidateVM.setEducation("Educacao 2");
 		candidateVM.setEmailCandidate("email@email.com");
 		candidateVM.setJobName("Cargo 2");
 		candidateVM.setLanguageOrigin("Lingua 2");

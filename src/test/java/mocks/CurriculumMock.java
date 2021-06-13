@@ -8,13 +8,13 @@ public class CurriculumMock {
 		Curriculum curriculum = new Curriculum();
 		curriculum.setAnoFormacao("12/2020");
 		curriculum.setArea("Area");
-		curriculum.setCountry("País");
+		curriculum.setCountry("Pais");
 		curriculum.setCandidate(CandidateMock.mock());
-		curriculum.setFormacao("Formação");
+		curriculum.setFormacao("Formacao");
 		curriculum.setId(3L);
-		curriculum.setInstituicao("Instituição");
+		curriculum.setInstituicao("Instituicao");
 		curriculum.setJobDesc("Cargo");
-		curriculum.setLastEmp("Último Emprego");
+		curriculum.setLastEmp("Ultimo Emprego");
 		curriculum.setPretSalario("R$ XX.XXX,XX");
 		
 		
@@ -26,13 +26,13 @@ public class CurriculumMock {
 		Curriculum curriculum = new Curriculum();
 		curriculum.setAnoFormacao("12/2020 2");
 		curriculum.setArea("Area 2");
-		curriculum.setCountry("País 2");
+		curriculum.setCountry("Pais 2");
 		curriculum.setCandidate(CandidateMock.mock());
-		curriculum.setFormacao("Formação 2");
+		curriculum.setFormacao("Formacao 2");
 		curriculum.setId(3L);
-		curriculum.setInstituicao("Instituição 2");
+		curriculum.setInstituicao("Instituicao 2");
 		curriculum.setJobDesc("Cargo 2");
-		curriculum.setLastEmp("Último Emprego 2");
+		curriculum.setLastEmp("Ultimo Emprego 2");
 		curriculum.setPretSalario("R$ XX.XXX,XX 2");
 		
 		

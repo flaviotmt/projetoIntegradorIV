@@ -9,9 +9,9 @@ public class CandidateMock {
 		candidate.setAdressCandidate("Rua A");
 		candidate.setCellphoneNumber("(xx) xxxx-xxxx");
 		candidate.setCityCandidate("Cidade");
-		candidate.setCountryOrigin("País");
+		candidate.setCountryOrigin("Pais");
 		candidate.setCpf("xxx.xxx.xxx-xx");
-		candidate.setEducation("Educação");
+		candidate.setEducation("Educacao");
 		candidate.setEmailCandidate("email@email.com");
 		candidate.setId(5L);
 		candidate.setJobName("Cargo");
@@ -29,9 +29,9 @@ public class CandidateMock {
 		candidate.setAdressCandidate("Rua A 2");
 		candidate.setCellphoneNumber("(xx) xxxx-xxxx 2");
 		candidate.setCityCandidate("Cidade 2");
-		candidate.setCountryOrigin("País 2");
+		candidate.setCountryOrigin("Pais 2");
 		candidate.setCpf("xxx.xxx.xxx-xx 2");
-		candidate.setEducation("Educação 2");
+		candidate.setEducation("Educacao 2");
 		candidate.setEmailCandidate("email@email.com");
 		candidate.setId(5L);
 		candidate.setJobName("Cargo 2");

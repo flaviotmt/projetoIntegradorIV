@@ -8,11 +8,11 @@ public class CurriculumVMMock {
 		CurriculumVM curriculumVM = new CurriculumVM();
 		curriculumVM.setAnoFormacao("12/2020");
 		curriculumVM.setArea("Area");
-		curriculumVM.setCountry("País");
-		curriculumVM.setFormacao("Formação");
-		curriculumVM.setInstituicao("Instituição");
+		curriculumVM.setCountry("Pais");
+		curriculumVM.setFormacao("Formacao");
+		curriculumVM.setInstituicao("Instituicao");
 		curriculumVM.setJobDesc("Cargo");
-		curriculumVM.setLastEmp("Último Emprego");
+		curriculumVM.setLastEmp("Ultimo Emprego");
 		curriculumVM.setPretSalario("R$ XX.XXX,XX");
 		
 		return curriculumVM;
@@ -23,11 +23,11 @@ public class CurriculumVMMock {
 		CurriculumVM curriculumVM = new CurriculumVM();
 		curriculumVM.setAnoFormacao("12/2020 2");
 		curriculumVM.setArea("Area 2");
-		curriculumVM.setCountry("País 2");
-		curriculumVM.setFormacao("Formação 2");
-		curriculumVM.setInstituicao("Instituição 2");
+		curriculumVM.setCountry("Pais 2");
+		curriculumVM.setFormacao("Formacao 2");
+		curriculumVM.setInstituicao("Instituicao 2");
 		curriculumVM.setJobDesc("Cargo 2");
-		curriculumVM.setLastEmp("Último Emprego 2");
+		curriculumVM.setLastEmp("Ultimo Emprego 2");
 		curriculumVM.setPretSalario("R$ XX.XXX,XX 2");
 		
 		return curriculumVM;

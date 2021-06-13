@@ -17,29 +17,29 @@ public class VagaMock {
 		vaga.setDataInicio(LocalDate.of(2021, 1, 1));
 		vaga.setEstadoCargo("Estado");
 		vaga.setId(10L);
-		vaga.setInfoCargo("Informação");
+		vaga.setInfoCargo("Informacao");
 		vaga.setRegimeContratacao("Regime");
 		vaga.setRequisistosCargo("Requisitos");
-		vaga.setSalario("R$ YY.YYY,YY");
+		vaga.setSalario("R$YY.YYY,YY");
 		
 		return vaga;
 	}
 	
 	public static Vaga mockAtualizado() {
 		Vaga vaga = new Vaga();
-		vaga.setAtividadesCargo("Atividade 2");
-		vaga.setBeneficiosCargo("Beneficios 2");
-		vaga.setCargo("Cargo 2");
-		vaga.setCidadeCargo("Cidade 2");
+		vaga.setAtividadesCargo("Atividade2");
+		vaga.setBeneficiosCargo("Beneficios2");
+		vaga.setCargo("Cargo2");
+		vaga.setCidadeCargo("Cidade2");
 		vaga.setCompany(CompanyMock.mock());
 		vaga.setDataFim(LocalDate.of(2021, 1, 7));
 		vaga.setDataInicio(LocalDate.of(2021, 1, 2));
-		vaga.setEstadoCargo("Estado 2");
+		vaga.setEstadoCargo("Estado2");
 		vaga.setId(10L);
-		vaga.setInfoCargo("Informação 2");
-		vaga.setRegimeContratacao("Regime 2");
-		vaga.setRequisistosCargo("Requisitos 2");
-		vaga.setSalario("R$ YY.YYY,YY 2");
+		vaga.setInfoCargo("Informacao2");
+		vaga.setRegimeContratacao("Regime2");
+		vaga.setRequisistosCargo("Requisitos2");
+		vaga.setSalario("R$YY.YYY,YY2");
 		
 		return vaga;
 	}

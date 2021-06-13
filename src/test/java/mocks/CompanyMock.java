@@ -6,8 +6,8 @@ public class CompanyMock {
 	
 	public static Company mock() {
 		Company company = new Company();
-		company.setAdressCompany("Rua B");
-		company.setCellphoneNumber("(yy) yyyyy-yyyy");
+		company.setAdressCompany("RuaB");
+		company.setCellphoneNumber("(yy)yyyyy-yyyy");
 		company.setCityCompany("Cidade");
 		company.setCnpj("00.000.000/0001-00");
 		company.setEmailCompany("empresa@empresa.com");
@@ -22,16 +22,16 @@ public class CompanyMock {
 	
 	public static Company mockAtualizado() {
 		Company company = new Company();
-		company.setAdressCompany("Rua B 2");
-		company.setCellphoneNumber("(yy) yyyyy-yyyy 2");
-		company.setCityCompany("Cidade 2");
-		company.setCnpj("00.000.000/0001-00 2");
+		company.setAdressCompany("RuaB2");
+		company.setCellphoneNumber("(yy)yyyyy-yyyy2");
+		company.setCityCompany("Cidade2");
+		company.setCnpj("00.000.000/0001-002");
 		company.setEmailCompany("empresa@empresa.com");
-		company.setFieldCompany("Campo 2");
+		company.setFieldCompany("Campo2");
 		company.setId(2L);
-		company.setNameCompany("Companhia 2");
-		company.setStateCompany("Estado 2");
-		company.setZipCompany("yyyyy-yyy 2");
+		company.setNameCompany("Companhia2");
+		company.setStateCompany("Estado2");
+		company.setZipCompany("yyyyy-yyy2");
 		
 		return company;
 	}
