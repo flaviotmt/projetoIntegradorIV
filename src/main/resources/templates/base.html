@@ -12,7 +12,7 @@
           <a class="navbar-brand" href="/">Programa Recomeçar</a>
         </div>
         <div class="nav navbar-nav navbar-right">
-        	<a sec:authorize="!isAuthenticated()" class="btn btn-outline-success" href="/login" role="button">Login</a>
+        	<a sec:authorize="!isAuthenticated()" class="btn btn-outline-success" href="/loginpage" role="button">Login</a>
         	<a onclick="document.querySelector('#form-login').submit()" sec:authorize="isAuthenticated()" class="btn btn-outline-success" href="#" role="button">Logout</a>
         	<form id="form-login" th:action="@{/logout}" method="post"></form>
         </div>
